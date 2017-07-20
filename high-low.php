@@ -19,6 +19,7 @@ fwrite(STDOUT, "Welcome, $userName!" . PHP_EOL);
 
 do {
     $randomNumber = mt_rand($min, $max);
+    // $numberOfGuesses = 0;
 
     do {
         do {
@@ -28,14 +29,16 @@ do {
 
         if($randomNumber > $guess) {
             $message = "guess higher!" . PHP_EOL;
+            // $numberOfGuesses += 1 . PHP_EOL;
         } else if($randomNumber < $guess) {
             $message = "guess lower!" . PHP_EOL;
+            // $numberOfGuesses += 1 . PHP_EOL;
         }
         echo $message . PHP_EOL;
     } while ($randomNumber != $guess);
 
     fwrite(STDOUT, "You guessed it! Good job!" . PHP_EOL);
-
+    // fwrite(STDOUT, 'It took you ' . $numberOfGuesses . ' guesses!' . PHP_EOL);
     fwrite(STDOUT, "Would you like to play again? Type 'yes' or 'no'." . PHP_EOL);
     $playAgain = trim(fgets(STDIN));
 
